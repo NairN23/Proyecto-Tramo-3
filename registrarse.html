@@ -36,19 +36,39 @@
   <h2 class="text-center mb-4">Registro de Usuario</h2>
   <p class="text-center mb-5">Completá el siguiente formulario para crear tu cuenta en Phone Store y acceder a nuestras ofertas exclusivas. El registro es rápido y gratuito.</p>
 
-  <form class="row g-3 justify-content-center" style="max-width: 700px; margin: auto;">
+ <form class="row g-3 justify-content-center" style="max-width: 700px; margin: auto;" action="registro.php" method="POST">
     <div class="col-md-6">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" required>
+      <input type="text" class="form-control" id="nombre" name="nombre" required>
     </div>
     <div class="col-md-6">
       <label for="apellido" class="form-label">Apellido</label>
-      <input type="text" class="form-control" id="apellido" required>
+      <input type="text" class="form-control" id="apellido" name="apellido" required>
     </div>
     <div class="col-12">
       <label for="email" class="form-label">Correo electrónico</label>
-      <input type="email" class="form-control" id="email" required>
+      <input type="email" class="form-control" id="email" name="email" required>
     </div>
+    <div class="col-md-6">
+  <label for="usuario" class="form-label">Nombre de Usuario</label>
+  <input type="text" class="form-control" id="usuario" name="usuario" required>
+</div>
+
+<div class="col-md-6">
+  <label for="pass" class="form-label">Contraseña</label>
+  <input type="password" class="form-control" id="pass" name="pass" required>
+</div>
+
+<div class="col-md-6">
+  <label for="perfil_id" class="form-label">Perfil (número)</label>
+  <input type="number" class="form-control" id="perfil_id" name="perfil_id" required>
+</div>
+
+<div class="col-md-6">
+  <label for="baja" class="form-label">¿Baja? (S/N)</label>
+  <input type="text" class="form-control" id="baja" name="baja" value="N" required>
+</div>
+
     <div class="col-12">
       <label for="categoria" class="form-label">¿Qué productos te interesan?</label>
       <select id="categoria" class="form-select" required>
