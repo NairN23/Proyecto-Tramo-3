@@ -1,28 +1,38 @@
 <?php
-session_start(); // 👈 Esto activa el uso de sesiones
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "Nazer_Nair";
 
-// Conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "Nazer_Nair");
+$conn = new mysqli($host, $user, $pass, $db);
 
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+if ($conn->connect_error) {
+    die("⚠️ Error de conexión: " . $conn->connect_error);
 }
 
-// Capturar los datos del formulario
-$usuario = $_POST['usuario'] ?? '';
-$pass = $_POST['pass'] ?? '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $usuario = $_POST["usuario"] ?? '';
+    $clave = $_POST["pass"] ?? '';
 
-// Verificar si el usuario y la contraseña coinciden
-$sql = "SELECT * FROM usuarios WHERE (usuario = '$usuario' OR email = '$usuario') AND pass = '$pass'";
-$resultado = $conexion->query($sql);
+    if (empty($usuario) || empty($clave)) {
+        echo "⚠️ Completá usuario y contraseña.";
+        exit;
+    }
 
-if ($resultado->num_rows === 1) {
-    $_SESSION['usuario'] = $usuario; // 👈 Guardás el nombre en sesión
-    header("Location: bienvenida.php");
-    exit;
+    $sql = "SELECT * FROM usuarios WHERE (usuario = '$usuario' OR email = '$usuario') AND pass = '$clave' AND baja = 'N'";
+    $resultado = $conn->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        $fila = $resultado->fetch_assoc();
+        $nombre = $fila["nombre"];
+        header("Location: bienvenida.php?nombre=" . urlencode($nombre) . "&mensaje=Sesión iniciada correctamente");
+        exit;
+    } else {
+        echo "❌ Usuario o contraseña incorrectos, o el usuario está dado de baja.";
+    }
 } else {
-    echo "❌ Usuario o contraseña incorrectos.";
+    echo "⚠️ No se enviaron datos desde el formulario.";
 }
 
-$conexion->close();
+$conn->close();
 ?>
