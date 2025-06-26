@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="miestilo.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header class="bg-black text-white p-3 d-flex justify-content-between align-items-center">
+  <h1 class="m-0"><a href="portada.html" class="text-white text-decoration-none">Phone Store</a></h1>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="portada.html">📱</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="portada.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="quienes.html">Quiénes Somos</a></li>
+        <li class="nav-item"><a class="nav-link" href="acerca.html">Acerca de</a></li>
+        <li class="nav-item"><a class="nav-link" href="registrarse.html">Registrarse</a></li>
+        <li class="nav-item"><a class="nav-link active" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="container py-5">
+  <h2 class="text-center mb-4">Iniciar Sesión</h2>
+  <p class="text-center mb-5">Accedé a tu cuenta de Phone Store para ver tus pedidos, recibir ofertas personalizadas y seguir tus productos favoritos.</p>
+
+  <form method="POST" action="login.php" class="row g-3 justify-content-center" style="max-width: 500px; margin: auto;">
+    <div class="col-12">
+      <label for="usuario" class="form-label">Correo electrónico o usuario</label>
+      <input type="text" class="form-control" id="usuario" name="usuario" required>
+    </div>
+    <div class="col-12">
+      <label for="clave" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="clave" name="pass" required>
+    </div>
+    <div class="col-12 d-flex justify-content-center mt-3">
+      <button type="submit" class="btn btn-primary me-2">Ingresar</button>
+      <button type="reset" class="btn btn-secondary">Cancelar</button>
+    </div>
+  </form>
+</section>
+
+<footer id="contacto" class="text-center py-4 bg-light">
+  <h2>Contacto</h2>
+  <p>Email: contacto@phonestore.com</p>
+  <p>Teléfono: +54 3624-567890</p>
+  <p>Dirección: Av. Sarmiento 742, Resistencia</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
